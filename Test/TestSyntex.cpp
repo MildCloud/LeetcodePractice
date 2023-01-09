@@ -12,6 +12,7 @@ int main () {
     string s = "asdf";
     s += 'i';
     s = s.insert(0, 1, 'b');
+    s.insert(0, 1, 'b');
     cout << s << endl;
     return 0;
 }
