@@ -9,5 +9,9 @@ int main () {
     vector<int> v1 = {1, 2, 3};
     vector<int> v2 = {1, 4, 3};
     cout << (v1 == v2) << endl;
+    string s = "asdf";
+    s += 'i';
+    s = s.insert(0, 1, 'b');
+    cout << s << endl;
     return 0;
 }

@@ -8,6 +8,7 @@ string longestPalindrome (string s) {
     }
     string maxPalindrome = "";
     for (size_t i = 0; i + 1 < s.size(); i++) {
+        //don't use i < s.size() - 1 
         string tempPalindrome;
         tempPalindrome += s[i];
         for (size_t j = 1;;j++) {
