@@ -14,6 +14,8 @@ int main () {
     s = s.insert(0, 1, 'b');
     s = s.insert(0, 1, 'b');
     s.insert(0, 1, 'b');
+    // int a[10];
+    // cout << a.size() << endl;
     cout << s << endl;
     return 0;
 }
