@@ -1,21 +1,50 @@
 #include <iostream>
 #include <vector>
 #include <limits>
+#include <memory>
 using namespace std;
 
 
+class B {
+public:
+    char* stack;
+    int* b;
+    B();
+    ~B();
+};
+
+B::B() {
+    stack = new char[9];
+    b = new int(9);
+}
+
+B::~B() {
+    cout << "B desturctor" << endl;
+    delete[] stack;
+    delete b;
+}
+
+class A {
+public:
+    A();
+    ~A();
+    std::shared_ptr<B> ptr;
+};
+
+A::A () {
+    // ptr = make_shared<B>();
+}
+
+A::~A () {
+    cout << "A destructor" << endl;
+}
+
 int main () {
-    cout << numeric_limits<int>::max() << endl;
-    vector<int> v1 = {1, 2, 3};
-    vector<int> v2 = {1, 4, 3};
-    cout << (v1 == v2) << endl;
-    string s = "asdf";
-    s += 'i';
-    s = s.insert(0, 1, 'b');
-    s = s.insert(0, 1, 'b');
-    s.insert(0, 1, 'b');
-    // int a[10];
-    // cout << a.size() << endl;
-    cout << s << endl;
+    {
+        A* A_ptr = new A;
+        A_ptr->ptr = make_shared<B>();
+        delete A_ptr;
+    }
+    cout << "out of scope" << endl;
     return 0;
 }
