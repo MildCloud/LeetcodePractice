@@ -1,50 +1,25 @@
 #include <iostream>
 #include <vector>
 #include <limits>
+#include <cassert>
 #include <memory>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <mutex>
+#include <shared_mutex>
+#include <unordered_map>
+#include <thread>
+#include <sstream>
 using namespace std;
 
-
-class B {
-public:
-    char* stack;
-    int* b;
-    B();
-    ~B();
-};
-
-B::B() {
-    stack = new char[9];
-    b = new int(9);
-}
-
-B::~B() {
-    cout << "B desturctor" << endl;
-    delete[] stack;
-    delete b;
-}
-
-class A {
-public:
-    A();
-    ~A();
-    std::shared_ptr<B> ptr;
-};
-
-A::A () {
-    // ptr = make_shared<B>();
-}
-
-A::~A () {
-    cout << "A destructor" << endl;
-}
+weak_ptr<shared_mutex> w_ptr;
 
 int main () {
-    {
-        A* A_ptr = new A;
-        A_ptr->ptr = make_shared<B>();
-        delete A_ptr;
-    }
-    cout << "out of scope" << endl;
+    unordered_map<int, vector<int>> map_vec;
+    map_vec[1].push_back(0);
+    
+    map_vec[1].push_back(1);
+    cout << map_vec[1][0] << map_vec[1][1] << endl;
     return 0;
 }
