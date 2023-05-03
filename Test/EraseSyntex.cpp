@@ -23,16 +23,6 @@ int main () {
         map[i] = i + 1;
         vec.push_back(i);
     }
-    // for (auto i : map) {
-    //     cout << i.first << ' ' << i.second << endl;
-    //     if (i.first % 2 == 0) {
-    //         map_erase.push_back(i.first);
-    //     }
-    // }
-    // while (!map_erase.empty()) {
-    //     map.erase(map_erase.back());
-    //     map_erase.pop_back();
-    // }
     for (auto it = map.begin(); it != map.end();) {
         if (it->first %2 == 0) {
             it = map.erase(it);
